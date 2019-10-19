@@ -11,8 +11,6 @@ yum -y install docker-ce docker-ce-cli containerd.io
 # set up usrs
 usermod -a -G docker $(whoami)
 
-# configure docker to allow insecure connections
-echo "{ \"insecure-registries\":[\"$1:5000\"] }" | sudo tee -a /etc/docker/daemon.json
 # start docker
 systemctl enable docker
 systemctl start docker
